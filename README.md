@@ -23,10 +23,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+models.py
 
+from django.db import models
+from django.contrib import admin
+class Car_DB(models.Model):
+	Car_name=models.CharField(max_length=20)
+	Fuel_efficient=models.FloatField()
+	Color=models.CharField(max_length=10)
+	Price=models.IntegerField()
+	CarID=models.IntegerField(primary_key=True)
+class Car_DBAdmin(admin.ModelAdmin):
+	list_display=["Car_name","Fuel_efficient","Color","Price","CarID"]
+
+admin.py
+
+from django.contrib import admin
+from .models import Car_DB,Car_DBAdmin
+admin.site.register(Car_DB,Car_DBAdmin)
+```
 
 
 ## OUTPUT
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d8024c6-aedb-477f-980c-64d964bae6a1" />
 
 
 
